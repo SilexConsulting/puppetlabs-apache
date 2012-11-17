@@ -131,8 +131,9 @@ MaxRequestsPerChild  0
 # prevent Apache from glomming onto all bound IP addresses (0.0.0.0)
 #
 #Listen 12.34.56.78:80
-Listen 80
-
+<% scope.lookupvar('apache::params::listen_port').each do |port| %>
+Listen <%= port %>
+<% end %>
 #
 # Load config files from the config directory "/etc/httpd/conf.d".
 #

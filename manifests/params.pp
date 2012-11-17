@@ -30,6 +30,7 @@ class apache::params {
   $options       = 'Indexes FollowSymLinks MultiViews'
   $override      = 'None'
   $vhost_name    = '*'
+  $listen_port   = $apache::listen_port 
   
   if $::osfamily == 'redhat' or $::operatingsystem == 'amazon' {
     $user                  = 'apache'

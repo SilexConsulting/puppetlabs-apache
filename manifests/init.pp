@@ -16,7 +16,8 @@ class apache (
   $default_mods = true,
   $service_enable = true,
   $serveradmin  = 'root@localhost',
-  $sendfile     = false
+  $sendfile     = false,
+  $listen_port = 80
 ) {
   include apache::params
 
