@@ -70,6 +70,9 @@ class apache::params {
     $user                  = 'www-data'
     $group                 = 'www-data'
     $apache_name           = 'apache2'
+    $httpd_dir             = '/etc/apache2'
+    $conf_dir              = "${httpd_dir}"
+    $conf_file             = 'apache2.conf'
     $php_package           = 'libapache2-mod-php5'
     $mod_passenger_package = 'libapache2-mod-passenger'
     $mod_python_package    = 'libapache2-mod-python'

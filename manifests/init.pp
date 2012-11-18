@@ -57,7 +57,7 @@ class apache (
       notify  => Service['httpd'],
       require => Package['httpd'],
     }
-    if $default_mods == true {
+    if $default_mods == true and  $::osfamily != 'debian'{
       include apache::mod::default
     }
   }
