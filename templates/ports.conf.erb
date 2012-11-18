@@ -5,8 +5,10 @@
 # Debian etch). See /usr/share/doc/apache2.2-common/NEWS.Debian.gz and
 # README.Debian.gz
 
-NameVirtualHost *:80
-Listen 80
+<% scope.lookupvar('apache::params::listen_port').each do |port| %>
+NameVirtualHost *:<%= port %>
+Listen <%= port %>
+<% end %>
 
 <IfModule mod_ssl.c>
     # If you add NameVirtualHost *:443 here, you will also have to change
