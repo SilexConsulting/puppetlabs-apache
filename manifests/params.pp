@@ -73,6 +73,7 @@ class apache::params {
     $httpd_dir             = '/etc/apache2'
     $conf_dir              = "${httpd_dir}"
     $conf_file             = 'apache2.conf'
+    $portsconf_file        = 'ports.conf'
     $php_package           = 'libapache2-mod-php5'
     $mod_passenger_package = 'libapache2-mod-passenger'
     $mod_python_package    = 'libapache2-mod-python'

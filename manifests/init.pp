@@ -57,10 +57,27 @@ class apache (
       notify  => Service['httpd'],
       require => Package['httpd'],
     }
+    
+    # Debian has more than one file to template.
+    if  $::osfamily == 'debian' {
+      file { "${apache::params::conf_dir}/${apache::params::portsconf_file}":
+        ensure  => present,
+        content => template("apache/${apache::params::portsconf_file}.erb"),
+        notify  => Service['httpd'],
+        require => Package['httpd'],
+      }
+    }
+    
+    # Don't include default mods on debian.
     if $default_mods == true and  $::osfamily != 'debian'{
       include apache::mod::default
     }
   }
+  
+  
+  
+  
+  
   if $apache::params::mod_dir {
     file { $apache::params::mod_dir:
       ensure  => directory,
